@@ -1,0 +1,30 @@
+{
+    "tsLibRoot": "node_modules/@types",
+    "fsprojName": "Fable.Import.ReactRouterDom",
+    "files": [
+        { "filename": "node_modules/@types/history/index.d.ts" },
+        { "-include": "node_modules/@types/history/**/*.d.ts", "exclude": "^.*index\\.d\\.ts$" },
+        { "filename": "node_modules/@types/react-router/index.d.ts" },
+        { "filename": "node_modules/@types/react-router-dom/index.d.ts" }
+    ],
+    "skipImports": true,
+    
+    
+
+    "importNamespace": "Fable.Helpers.ReactRouterDom",
+    "extraOpens": [
+        "open Fable.Import.ReactRouterDom"
+    ],
+    "skipAllowNullLiteral": true,
+    "createReactHelpersFor": "react-router-dom",
+    "mappedTypes": {
+        "React.AnchorHTMLAttributes<HTMLAnchorElement>": "ReactEx.AnchorHTMLAttributes",
+
+        "U2<React.ComponentType<RouteComponentProps<obj>>, React.ComponentType>": "ReactEx.ComponentType<obj>",
+
+        "H.LocationDescriptor": "LocationDescriptor",
+        "H.Location": "Location",
+        "H.History": "History"
+    },
+    "typeCacheFile": "type-cache.json"
+}

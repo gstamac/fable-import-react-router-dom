@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Fable.Import.ReactRouterDom.ReactEx.fs" />
+
+    <Compile Include="converted/history/Fable.Helpers.ReactRouterDom.history.fs" />
+    <Compile Include="converted/react-router/Fable.Helpers.ReactRouterDom.react-router.fs" />
+    <Compile Include="converted/react-router-dom/Fable.Helpers.ReactRouterDom.react-router-dom.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="1.2.4" />
+    <PackageReference Include="Fable.Import.Browser" Version="0.1.0" />
+    <PackageReference Include="Fable.Import.Electron" Version="0.1.1" />
+    <PackageReference Include="Fable.Import.Node" Version="0.1.5" />
+    <PackageReference Include="Fable.PowerPack" Version="1.2.0" />
+    <PackageReference Include="Fable.React" Version="1.2.1" />
+  </ItemGroup>
+  <Import Project=".paket\Paket.Restore.targets" />
+</Project>

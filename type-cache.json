@@ -1,0 +1,1071 @@
+{
+    "Action": {
+        "kind": "stringEnum",
+        "name": "Action",
+        "properties": [
+            {
+                "name": "PUSH"
+            },
+            {
+                "name": "POP"
+            },
+            {
+                "name": "REPLACE"
+            }
+        ],
+        "parents": [],
+        "methods": []
+    },
+    "UnregisterCallback": {
+        "name": "UnregisterCallback",
+        "kind": "alias",
+        "parents": [
+            "(unit -> unit)"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "History": {
+        "name": "History",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "length",
+                "type": "float",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "action",
+                "type": "Action",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "location",
+                "type": "Location",
+                "optional": false,
+                "static": false
+            }
+        ],
+        "methods": [
+            {
+                "name": "push",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "path",
+                        "type": "Path",
+                        "optional": false,
+                        "rest": false
+                    },
+                    {
+                        "name": "state",
+                        "type": "LocationState",
+                        "optional": true,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "push",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "location",
+                        "type": "LocationDescriptorObject",
+                        "optional": false,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "replace",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "path",
+                        "type": "Path",
+                        "optional": false,
+                        "rest": false
+                    },
+                    {
+                        "name": "state",
+                        "type": "LocationState",
+                        "optional": true,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "replace",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "location",
+                        "type": "LocationDescriptorObject",
+                        "optional": false,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "go",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "n",
+                        "type": "float",
+                        "optional": false,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "goBack",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": []
+            },
+            {
+                "name": "goForward",
+                "type": "unit",
+                "optional": false,
+                "static": false,
+                "parameters": []
+            },
+            {
+                "name": "block",
+                "type": "UnregisterCallback",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "prompt",
+                        "type": "bool",
+                        "optional": true,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "listen",
+                "type": "UnregisterCallback",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "listener",
+                        "type": "LocationListener",
+                        "optional": false,
+                        "rest": false
+                    }
+                ]
+            },
+            {
+                "name": "createHref",
+                "type": "Href",
+                "optional": false,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "location",
+                        "type": "LocationDescriptorObject",
+                        "optional": false,
+                        "rest": false
+                    }
+                ]
+            }
+        ],
+        "path": null
+    },
+    "Location": {
+        "name": "Location",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "pathname",
+                "type": "Pathname",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "search",
+                "type": "Search",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "state",
+                "type": "LocationState",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "hash",
+                "type": "Hash",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "key",
+                "type": "LocationKey",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "LocationDescriptorObject": {
+        "name": "LocationDescriptorObject",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "pathname",
+                "type": "Pathname",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "search",
+                "type": "Search",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "state",
+                "type": "LocationState",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "hash",
+                "type": "Hash",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "key",
+                "type": "LocationKey",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "History.LocationDescriptor": {
+        "name": "LocationDescriptor",
+        "kind": "alias",
+        "parents": [
+            "U2<Path, LocationDescriptorObject>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.LocationKey": {
+        "name": "LocationKey",
+        "kind": "alias",
+        "parents": [
+            "string"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.LocationListener": {
+        "name": "LocationListener",
+        "kind": "alias",
+        "parents": [
+            "(Location -> Action -> unit)"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.LocationState": {
+        "name": "LocationState",
+        "kind": "alias",
+        "parents": [
+            "obj"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.Path": {
+        "name": "Path",
+        "kind": "alias",
+        "parents": [
+            "string"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.Pathname": {
+        "name": "Pathname",
+        "kind": "alias",
+        "parents": [
+            "string"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.Search": {
+        "name": "Search",
+        "kind": "alias",
+        "parents": [
+            "string"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.TransitionHook": {
+        "name": "TransitionHook",
+        "kind": "alias",
+        "parents": [
+            "(Location -> (obj -> unit) -> obj)"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.Hash": {
+        "name": "Hash",
+        "kind": "alias",
+        "parents": [
+            "string"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "History.Href": {
+        "name": "Href",
+        "kind": "alias",
+        "parents": [
+            "string"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": "History"
+    },
+    "LocationDescriptor": {
+        "name": "LocationDescriptor",
+        "kind": "alias",
+        "parents": [
+            "History.LocationDescriptor"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "LocationKey": {
+        "name": "LocationKey",
+        "kind": "alias",
+        "parents": [
+            "History.LocationKey"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "LocationListener": {
+        "name": "LocationListener",
+        "kind": "alias",
+        "parents": [
+            "History.LocationListener"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "LocationState": {
+        "name": "LocationState",
+        "kind": "alias",
+        "parents": [
+            "History.LocationState"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "Path": {
+        "name": "Path",
+        "kind": "alias",
+        "parents": [
+            "History.Path"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "Pathname": {
+        "name": "Pathname",
+        "kind": "alias",
+        "parents": [
+            "History.Pathname"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "Search": {
+        "name": "Search",
+        "kind": "alias",
+        "parents": [
+            "History.Search"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "TransitionHook": {
+        "name": "TransitionHook",
+        "kind": "alias",
+        "parents": [
+            "History.TransitionHook"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "Hash": {
+        "name": "Hash",
+        "kind": "alias",
+        "parents": [
+            "History.Hash"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "Href": {
+        "name": "Href",
+        "kind": "alias",
+        "parents": [
+            "History.Href"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "Module": {
+        "name": "Module",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "createBrowserHistory",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "createHashHistory",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "createMemoryHistory",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "createLocation",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "locationsAreEqual",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "parsePath",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "createPath",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "RouterChildContext": {
+        "name": "RouterChildContext<'P>",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "router",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "MemoryRouterProps": {
+        "name": "MemoryRouterProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "initialEntries",
+                "type": "ResizeArray<LocationDescriptor>",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "initialIndex",
+                "type": "float",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "getUserConfirmation",
+                "type": "(unit -> unit)",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "keyLength",
+                "type": "float",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "MemoryRouter": {
+        "name": "MemoryRouter",
+        "kind": "class",
+        "parents": [
+            "React.Component<MemoryRouterProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "PromptProps": {
+        "name": "PromptProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "message",
+                "type": "U2<string, (Location -> unit)>",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "when",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "Prompt": {
+        "name": "Prompt",
+        "kind": "class",
+        "parents": [
+            "React.Component<PromptProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "RedirectProps": {
+        "name": "RedirectProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "to",
+                "type": "LocationDescriptor",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "push",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "from",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "path",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "exact",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "strict",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "Redirect": {
+        "name": "Redirect",
+        "kind": "class",
+        "parents": [
+            "React.Component<RedirectProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "RouteComponentProps": {
+        "name": "RouteComponentProps<'P>",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "match",
+                "type": "match<'P>",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "location",
+                "type": "Location",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "history",
+                "type": "History",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "staticContext",
+                "type": "obj",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "RouteProps": {
+        "name": "RouteProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "location",
+                "type": "Location",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "component",
+                "type": "ReactEx.ComponentType<obj>",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "render",
+                "type": "(RouteComponentProps<obj> -> React.ReactNode)",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "children",
+                "type": "U2<(RouteComponentProps<obj> -> React.ReactNode), React.ReactNode>",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "path",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "exact",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "strict",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "Route": {
+        "name": "Route<'T when 'T :> RouteProps>",
+        "kind": "class",
+        "parents": [
+            "React.Component<'T>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "RouterProps": {
+        "name": "RouterProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "history",
+                "type": "obj",
+                "optional": false,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "Router": {
+        "name": "Router",
+        "kind": "class",
+        "parents": [
+            "React.Component<RouterProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "StaticRouterProps": {
+        "name": "StaticRouterProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "basename",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "location",
+                "type": "U2<string, obj>",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "context",
+                "type": "obj",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "StaticRouter": {
+        "name": "StaticRouter",
+        "kind": "class",
+        "parents": [
+            "React.Component<StaticRouterProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "SwitchProps": {
+        "name": "SwitchProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "children",
+                "type": "React.ReactNode",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "location",
+                "type": "Location",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "Switch": {
+        "name": "Switch",
+        "kind": "class",
+        "parents": [
+            "React.Component<SwitchProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "match": {
+        "name": "match<'P>",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "params",
+                "type": "'P",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "isExact",
+                "type": "bool",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "path",
+                "type": "string",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "url",
+                "type": "string",
+                "optional": false,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "BrowserRouterProps": {
+        "name": "BrowserRouterProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "basename",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "forceRefresh",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "keyLength",
+                "type": "float",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [
+            {
+                "name": "getUserConfirmation",
+                "type": "unit",
+                "optional": true,
+                "static": false,
+                "parameters": []
+            }
+        ],
+        "path": null
+    },
+    "BrowserRouter": {
+        "name": "BrowserRouter",
+        "kind": "class",
+        "parents": [
+            "React.Component<BrowserRouterProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "HashRouterProps": {
+        "name": "HashRouterProps",
+        "kind": "interface",
+        "parents": [],
+        "properties": [
+            {
+                "name": "basename",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "hashType",
+                "type": "(* TODO StringEnum  |  |  *) string",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [
+            {
+                "name": "getUserConfirmation",
+                "type": "unit",
+                "optional": true,
+                "static": false,
+                "parameters": []
+            }
+        ],
+        "path": null
+    },
+    "HashRouter": {
+        "name": "HashRouter",
+        "kind": "class",
+        "parents": [
+            "React.Component<HashRouterProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "LinkProps": {
+        "name": "LinkProps",
+        "kind": "interface",
+        "parents": [
+            "ReactEx.AnchorHTMLAttributes"
+        ],
+        "properties": [
+            {
+                "name": "to",
+                "type": "LocationDescriptor",
+                "optional": false,
+                "static": false
+            },
+            {
+                "name": "replace",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [],
+        "path": null
+    },
+    "Link": {
+        "name": "Link",
+        "kind": "class",
+        "parents": [
+            "React.Component<LinkProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    },
+    "NavLinkProps": {
+        "name": "NavLinkProps",
+        "kind": "interface",
+        "parents": [
+            "LinkProps"
+        ],
+        "properties": [
+            {
+                "name": "activeClassName",
+                "type": "string",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "activeStyle",
+                "type": "React.CSSProperties",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "exact",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            },
+            {
+                "name": "strict",
+                "type": "bool",
+                "optional": true,
+                "static": false
+            }
+        ],
+        "methods": [
+            {
+                "name": "isActive",
+                "type": "bool",
+                "optional": true,
+                "static": false,
+                "parameters": [
+                    {
+                        "name": "match",
+                        "type": "match<'P>",
+                        "optional": false,
+                        "rest": false
+                    },
+                    {
+                        "name": "location",
+                        "type": "Location",
+                        "optional": false,
+                        "rest": false
+                    }
+                ]
+            }
+        ],
+        "path": null
+    },
+    "NavLink": {
+        "name": "NavLink",
+        "kind": "class",
+        "parents": [
+            "React.Component<NavLinkProps>"
+        ],
+        "properties": [],
+        "methods": [],
+        "path": null
+    }
+}
