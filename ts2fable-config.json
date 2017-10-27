@@ -1,11 +1,13 @@
 {
     "tsLibRoot": "node_modules/@types",
+    "-tsLibRoot": "docs",
     "fsprojName": "Fable.Import.ReactRouterDom",
     "files": [
         { "filename": "node_modules/@types/history/index.d.ts" },
         { "-include": "node_modules/@types/history/**/*.d.ts", "exclude": "^.*index\\.d\\.ts$" },
         { "filename": "node_modules/@types/react-router/index.d.ts" },
-        { "filename": "node_modules/@types/react-router-dom/index.d.ts" }
+        { "filename": "node_modules/@types/react-router-dom/index.d.ts" },
+        { "-filename": "docs/react-router-4.0.0-alpha.5.d.ts", "output": "converted/Fable.Import.ReactRouterDom.fs" }
     ],
     "skipImports": true,
     
